@@ -29,3 +29,12 @@ def products(request, pk):
     }
     return render(request, 'catalog/products.html', context)
 
+
+def product_card(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {
+        'object': product,
+        'title': f'{product.name}'
+    }
+    return render(request, 'catalog/product_card.html', context)
+
