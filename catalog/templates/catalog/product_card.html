@@ -9,7 +9,7 @@
                  alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">{{ object.name }}</p>
-                <p class="card-text">Описание: {{ object.description }}</p>
+                <p class="card-text">Описание: {{ object.description|slice:":100" }}</p>
                 <p class="card-text">Категория: {{ object.category }}</p>
                 <p class="card-text">Цена: {{ object.purchase_price }}</p>
                 <p class="card-text">Дата создания: {{ object.date_of_creation }}</p>
