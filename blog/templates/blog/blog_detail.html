@@ -1,0 +1,18 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+    <h3 class="text-center">{{ object.title|capfirst }}</h3>
+    <div class="text-center px-5">
+        <img style="max-width: 540px;" src="{{ object.image|mediapath }}" />
+    </div>
+    {% autoescape off %}
+        {{ object.body }}
+    {% endautoescape %}
+    <p class="px-2">Дата создания: {{ object.date_of_creation }}</p>
+    <p class="px-2">Количество просмотров: {{object.views }}</p>
+    <div class="py-4 text-center">
+        <a class="p-2 btn btn-outline-success" href="{% url 'blog:edit_blog' object.slug %}">Редактировать статью</a>
+        <a class="p-2 btn btn-outline-danger" href="{% url 'blog:delete_blog' object.slug %}">Удалить статью</a>
+    </div>
+{% endblock %}
